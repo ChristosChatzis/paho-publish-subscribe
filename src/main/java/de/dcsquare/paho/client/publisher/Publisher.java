@@ -1,18 +1,18 @@
-package de.dobermai.eclipsemagazin.paho.client.publisher;
+package de.dcsquare.paho.client.publisher;
 
-import de.dobermai.eclipsemagazin.paho.client.util.Utils;
+import de.dcsquare.paho.client.util.Utils;
 import org.eclipse.paho.client.mqttv3.*;
 
 /**
  * @author Dominik Obermaier
+ * @author Christian Götz
  */
 public class Publisher {
 
     public static final String BROKER_URL = "tcp://broker.mqttdashboard.com:1883";
-    //public static final String BROKER_URL = "tcp://test.mosquitto.org:1883";
 
-    public static final String TOPIC_BRIGHTNESS = "homeautomation/brightness";
-    public static final String TOPIC_TEMPERATURE = "homeautomation/temperature";
+    public static final String TOPIC_BRIGHTNESS = "home/brightness";
+    public static final String TOPIC_TEMPERATURE = "home/temperature";
 
     private MqttClient client;
 
@@ -38,7 +38,7 @@ public class Publisher {
         try {
             MqttConnectOptions options = new MqttConnectOptions();
             options.setCleanSession(false);
-            options.setWill(client.getTopic("homeautomation/LWT"), "I'm gone :(".getBytes(), 0, false);
+            options.setWill(client.getTopic("home/LWT"), "I'm gone :(".getBytes(), 0, false);
 
             client.connect(options);
 

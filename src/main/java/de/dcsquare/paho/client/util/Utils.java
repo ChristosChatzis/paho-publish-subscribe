@@ -1,4 +1,4 @@
-package de.dobermai.eclipsemagazin.paho.client.util;
+package de.dcsquare.paho.client.util;
 
 import java.net.NetworkInterface;
 import java.net.SocketException;
